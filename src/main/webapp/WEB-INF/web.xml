@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee https://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+<!--  
+	issue : We need to dynamically set the settings according to the development environment.
+	Aurthor : PM  
+	refer :
+		https://twofootdog.github.io/Spring-Maven-%EB%B0%B0%ED%8F%AC-%EC%8B%9C-%EB%B0%B0%ED%8F%AC%EC%84%9C%EB%B2%84%EB%B3%84-%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95(resource)-%EB%8B%A4%EB%A5%B4%EA%B2%8C-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0/
+		https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=tgmuseum&logNo=40195123083
+		https://m.blog.naver.com/qhdqhdekd261/221837351506
+		
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:/defaultConfig/application-*.xml</param-value>
+	</context-param>
+ -->
+	<!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/spring/root-context.xml</param-value>
+	</context-param>
+	
+	<!-- Creates the Spring Container shared by all Servlets and Filters -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<!-- Processes application requests -->
+	<servlet>
+		<servlet-name>appServlet</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/spring/appServlet/servlet-context.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+		
+	<servlet-mapping>
+		<servlet-name>appServlet</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+	<filter>
+		<!-- filter-name은 임의로 -->
+		<filter-name>CharacterEncoding</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter
+		</filter-class>
+		<init-param>
+			<!-- param-name과 param-value은 아래처럼 -->
+			<param-name>encoding</param-name><!--setEncoding()호출 -->
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>CharacterEncoding</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+</web-app>
