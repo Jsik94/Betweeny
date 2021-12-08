@@ -12,6 +12,12 @@ import net.nurigo.java_sdk.Coolsms;
 @PropertySource("classpath:defaultConfig/application-com.properties")
 public class SampleSender {
 
+	/*
+	 * 	Author : yoonsik
+	 * 	contents : coolsms sdk로 SMS 전송 
+	 * 
+	 */
+	
 	@Value("${coolsms.apikey}")
 	private String api_key;
 
@@ -25,6 +31,9 @@ public class SampleSender {
 		
 		sms = new Coolsms(api_key, api_secret);
 	}
+	
+	
+	public 
 	
 	
 	
