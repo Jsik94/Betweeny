@@ -29,7 +29,7 @@
 		<property name="dataSource" ref="datasourceByJNDI" />
 		<!-- mybatis 환경설정 파일 위치 설정 -->
 		<!-- 클래스 패스 항상확인할껏! -->
-		<property name="configLocation"	value="classpath:onememo/mybatis/configuration.xml" />
+		<property name="configLocation"	value="classpath:mybatis/configuration.xml" />
 	</bean>
 	<!-- 2]SqlSessionTemplate -->
 	<bean id="template" class="org.mybatis.spring.SqlSessionTemplate">
