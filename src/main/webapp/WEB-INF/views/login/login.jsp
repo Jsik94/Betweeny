@@ -1,6 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"   pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,10 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="login.css" rel="stylesheet">
   <title>로그인</title>
-  <script
-  src="https://code.jquery.com/jquery-3.6.0.js"
-  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-  crossorigin="anonymous"></script>
 </head>
 <body>
  <div class="login-form">
@@ -37,7 +30,7 @@
           <input type="checkbox"> 자동로그인
         </div>
         <div>
-          <a href="#">회원가입</a>
+          <a href="Member.html">회원가입</a>
         </div>
       </div>
 
@@ -50,55 +43,23 @@
 		      </a>
       </li>
 			<li>
-        <a href="javascript:kakaoLogin();"><img  style="width: 277px; height: 60px;" alt="카카오 로그인"/></a>
+        <a href="javascript:kakaoLogin();"><img src="../img/kakao.png" style="width: 277px; height: 60px;" alt="카카오 로그인"/></a>
       </li>
+      <!-- 
       <li>
-        <a href="#"><img  alt="구글 로그인"/></a>
+        <a href="#"><img src="../img/google.png" alt="구글 로그인"/></a>
         </li>
+         -->
       </ul>
-    </div>
-    <div>
-    	<h2>CoolSmS TEST </h2>
-    	<input type="text" value ="01097539435" id ="sendNumber"/>
-    	<input type="button" value ="전송"  id="sendPhoneNumber"/>
     </div>
   </div>
 <!-- 카카오 로그인 -->
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-
-<script>
-	$('#sendPhoneNumber').click(function(){
-		
-		var data ={'phone':$('#sendNumber').val()}
-		console.log(data);
-		$.ajax({
-			url : '<c:url value="/callsms/sendData"/>',
-            type : 'post', 
-            data : JSON.stringify(data),
-            dataType : 'json',
-            contentType: 'application/json',
-            success : function(res){
-                 // 응답코드 > 0000
-                 console.log(res.result)
-                 console.log(res.authCode)
-                
-             },
-             error : function(XMLHttpRequest, textStatus, errorThrown){ // 비동기 통신이 실패할경우 error 콜백으로 들어옵니다.
-                 alert("통신 실패.")
-             }
-         });
-	})
-
-
-</script>
-
 <script>
   //0d80279da770afdfb1ada7019771b737
   window.Kakao.init("0d80279da770afdfb1ada7019771b737");
 
   function kakaoLogin() {
-    
-    console.log('시작')
     window.Kakao.Auth.login({
       scope:'profile_nickname,account_email,gender,age_range,birthday',
       success: function(authObj){
@@ -111,7 +72,6 @@
           }
         });
       }
-      
     });
   }
 </script>

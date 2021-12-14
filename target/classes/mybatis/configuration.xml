@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<!-- https://mybatis.org/mybatis-3/ko/index.html -->
+<!-- mybatis 환경설정파일 1] 데이터베이스 연결정보 설정 2] 매퍼파일의 위치정보 설정 -->
+<configuration>
+
+
+	<!-- Alias Area -->
+	<typeAliases>
+	<!-- 
+		<typeAlias type="com.kosmo.springapp.onememo.service.OneMemoDTO" alias ="oneMemoDTO"/>
+		 -->
+	</typeAliases>
+	
+	<mappers>
+	<!-- 
+		<mapper resource="/onememo/mybatis/mapper/onememo.xml" />
+		 -->
+	</mappers>
+</configuration>

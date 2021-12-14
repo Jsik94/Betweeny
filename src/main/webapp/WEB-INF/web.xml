@@ -57,4 +57,9 @@
 		<filter-name>CharacterEncoding</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+	
+	<!-- 시작요청 설정:디폴트로 루트 요청 -->
+	<welcome-file-list>
+		<welcome-file>gentela-gh-pages/production/Member</welcome-file>
+	</welcome-file-list>
 </web-app>
