@@ -7,6 +7,7 @@
 	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
+
 			<!-- JNDI 커넥션 풀 -->
 	<!-- DataSource using Spring JNDI -->
 
@@ -30,13 +31,11 @@
 		<!-- mybatis 환경설정 파일 위치 설정 -->
 		<!-- 클래스 패스 항상확인할껏! -->
 		<property name="configLocation"	value="classpath:mybatis/configuration.xml" />
+
 	</bean>
 	<!-- 2]SqlSessionTemplate -->
 	<bean id="template" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg ref="sqlSessionFactory" />
 	</bean>
-	
-	
-	<!-- 트랜잭션은 추후 등록할 예정 -->
-	
+
 </beans>
