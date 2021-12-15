@@ -3,8 +3,8 @@ KOSMO Final Project
 
 
 
-#Update Note
+# Update Note
 
-<b>This project is deprecated. Project is dropped.</b>
+2021.12.15 - <b>This project is deprecated. Project is dropped.</b>
 
 
